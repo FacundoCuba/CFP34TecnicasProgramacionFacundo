@@ -1,5 +1,5 @@
 
-def inicio(inputDelUser):
+def inicio():
     print("Bienvenido al Juego \"Luces fuera\"")
     print("Ingrese el modo de Juego (Aletarorio/Predeterminado/Salir): ")
     inputDelUser = input()
@@ -12,7 +12,8 @@ def inicio(inputDelUser):
     else:
         print("Ingrese una opcion valida")
         print("")
-        inicio(inputDelUser)
+        inicio()
+
 
 ''''
 #Tablero
@@ -54,4 +55,4 @@ fila52 = (".", ".", ".", "0", "0")
 fila53 = (".", ".", ".", ".", ".")
 fila54 = ("0", "0", ".", ".", ".")
 fila55 = ("0", "0", ".", ".", ".")
-''''
+'''''

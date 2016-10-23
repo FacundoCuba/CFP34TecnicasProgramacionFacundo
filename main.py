@@ -1,2 +1,2 @@
 import functions
-print(functions.inicio("Juego"))
+print(functions.inicio())
