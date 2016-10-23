@@ -1,1 +1,2 @@
-print("Hello World!")
+import functions
+print(functions.inicio("Juego"))
