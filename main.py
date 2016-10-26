@@ -1,2 +1,2 @@
-import functions
-print(functions.inicio())
+import menu
+print(menu.menu())
