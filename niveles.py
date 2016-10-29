@@ -5,3 +5,15 @@ nivel2 = [["A", "B", "C", "D", "E"],[".", "0", ".", "0", "."],["0", "0", ".", "0
 nivel3 = [["A", "B", "C", "D", "E"],["0", ".", ".", ".", "0"],["0", "0", ".", "0", "0"],[".", ".", "0", ".", "."],["0", ".", "0", ".", "."],["0", ".", "0", "0", "."]]
 nivel4 = [["A", "B", "C", "D", "E"],["0", "0", ".", "0", "0"],[".", ".", ".", ".", "."],["0", "0", ".", "0", "0"],[".", ".", ".", ".", "0"],["0", "0", ".", ".", "."]]
 nivel5 = [["A", "B", "C", "D", "E"],[".", ".", ".", "0", "0"],[".", ".", ".", "0", "0"],[".", ".", ".", ".", "."],["0", "0", ".", ".", "."],["0", "0", ".", ".", "."]]
+import random
+def aleatorio(numeroDeDimension):
+    columnas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    columnas = columnas[:(numeroDeDimension)]
+    nivel = [columnas]
+    for filas in range(numeroDeDimension):
+            opciones = ["0", "."]
+            fila = []
+            for columnas in range(numeroDeDimension):
+                fila.append(random.choice(opciones))
+            nivel.append(fila)
+    return nivel
