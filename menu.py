@@ -6,6 +6,7 @@ def menu():
     print("2 para Modo Predeterminado")
     print("3 para Salir del Juego")
     inputDelUser = input()
+    print("")
     if inputDelUser == "1":
         print("Ud ha elegido el Modo Aleatorio:")
         print("modoAleatorio")
