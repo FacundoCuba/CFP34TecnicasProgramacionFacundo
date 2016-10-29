@@ -6,18 +6,17 @@ def predeterminado():
         print("")
         print("Turnos restantes: ", turnos)
         print("")
-        print(str(nivelesPredeterminado.columnas))
-        for fila in nivelesPredeterminado.nivel1:
+        for fila in enumerate(nivelesPredeterminado.nivel1):
             print(str(fila))
         print("")
         print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M): ")
-        movimiento = list(input())
+        movimiento = list(input().upper())
         if movimiento[0] in nivelesPredeterminado.columnas and movimiento[1] in nivelesPredeterminado.filas:
             turnos -= 1
             print("")
-        elif movimiento == ["R"] or movimiento == ["r"]:
+        elif movimiento == ["R"]:
             predeterminado()
-        elif movimiento == ["M"] or movimiento == ["m"]:
+        elif movimiento == ["M"]:
             print("")
             menu.menu()
         else:
