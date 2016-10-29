@@ -12,13 +12,10 @@ lucesACambiar = [nivel[(filas.index(movimiento[1])+1)][(columnas.index(movimient
 print(lucesACambiar)
 for luz in lucesACambiar:
     if luz == ".":
-        lucesACambiar[luz.index(".")] = luz.index(".").replace(".","0")
+        lucesACambiar[lucesACambiar.index(luz)] = lucesACambiar[lucesACambiar.index(luz)].replace(".","0")
         print(lucesACambiar)
     elif luz == "0":
-        lucesACambiar[luz.index("0")] = luz.index("0").replace("0",".")
+        lucesACambiar[lucesACambiar.index(luz)] = lucesACambiar[lucesACambiar.index(luz)].replace("0", ".")
         print(lucesACambiar)
 print("")
 print(lucesACambiar)
-print("")
-for i in enumerate(nivel):
-    print(i)
