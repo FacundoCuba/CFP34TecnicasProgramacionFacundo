@@ -5,7 +5,7 @@ def aleatorio():
     dimension = int(input())
     print("")
     if dimension >= 5 and dimension <= 10:
-        for fila in enumerate(niveles.aleatorio(dimension)):
+        for fila in enumerate(niveles.nivelAleatorio(dimension)):
             print(fila)
     elif dimension < 5 or dimension > 10:
         print("Ingrese una dimension valida. Intentelo de nuevo!")
