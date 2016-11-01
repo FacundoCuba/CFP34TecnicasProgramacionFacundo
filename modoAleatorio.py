@@ -2,11 +2,12 @@ import niveles
 def aleatorio():
     print("")
     print("Ingrese la dimension del tablero que desee (de 5 a 10): ")
-    dimension = int(input())
+    dimension = input()
+    dimensionesValidas = ("5", "6", "7", "8", "9", "10")
     print("")
-    if dimension >= 5 and dimension <= 10:
-        for fila in enumerate(niveles.nivelAleatorio(dimension)):
+    if dimension in dimensionesValidas:
+        for fila in enumerate(niveles.nivelAleatorio(int(dimension))):
             print(fila)
-    elif dimension < 5 or dimension > 10:
-        print("Ingrese una dimension valida. Intentelo de nuevo!")
+    else:
+        print("La opcion ingresada no es valida. Intentelo de nuevo!")
         aleatorio()

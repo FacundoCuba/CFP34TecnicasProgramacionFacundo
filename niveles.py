@@ -11,9 +11,9 @@ def nivelAleatorio(numeroDeDimension):
     columnas = columnas[:(numeroDeDimension)]
     nivel = [columnas]
     for filas in range(numeroDeDimension):
-            opciones = ["0", "."]
-            fila = []
-            for columnas in range(numeroDeDimension):
-                fila.append(random.choice(opciones))
-            nivel.append(fila)
+        opciones = ["0", "."]
+        fila = []
+        for columnas in range(numeroDeDimension):
+            fila.append(random.choice(opciones))
+        nivel.append(fila)
     return nivel
