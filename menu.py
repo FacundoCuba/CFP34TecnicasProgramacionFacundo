@@ -1,5 +1,5 @@
 import modoAleatorio
-import modoPredeterminado
+import juegoModoPredeterminado
 def menu():
     print("¡Bienvenido al Juego \"Luces fuera\"!")
     print("Ingrese el modo de Juego:")
@@ -13,7 +13,7 @@ def menu():
         modoAleatorio.aleatorio()
     elif inputDelUser == "2":
         print("Ud ha elegido el Modo Predeterminado!")
-        modoPredeterminado.predeterminado()
+        juegoModoPredeterminado.predeterminado()
     elif inputDelUser == "3":
         print("Saliendo...")
         exit()
