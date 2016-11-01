@@ -21,16 +21,3 @@ def menu():
         print("Ingrese una opcion valida!")
         print("")
         menu()
-
-
-''''
-#Tablero
-columnas = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
-filas = ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
-dimensiones = int(input("Ingrese el numero de dimensiones para jugar (de 5 a 10): "))
-print(" ", columnas[:dimensiones])
-for i in range(dimensiones):
-    print(filas[i])
-
-
-'''''
