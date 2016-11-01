@@ -19,3 +19,6 @@ for luz in lucesACambiar:
         print(lucesACambiar)
 print("")
 print(lucesACambiar)
+print("")
+for i in enumerate(nivel):
+    print(i)

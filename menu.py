@@ -1,6 +1,6 @@
 import modoAleatorio
 import juegoModoPredeterminado
-def menu():
+def mostrarMenu():
     print("¡Bienvenido al Juego \"Luces fuera\"!")
     print("Ingrese el modo de Juego:")
     print("1 para Modo Aletarorio")
@@ -20,4 +20,4 @@ def menu():
     else:
         print("Ingrese una opcion valida!")
         print("")
-        menu()
+        mostrarMenu()

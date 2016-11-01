@@ -1,2 +1,3 @@
-import menu
-print(menu.menu())
+import juego
+juego.cargarConfiguracionesIniciales()
+print(juego.iniciarJuego())

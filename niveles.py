@@ -18,8 +18,7 @@ def getNivelPredeterminado(numeroNivel):
     else:
         print("Nivel no disponible...")
         print("")
-        menu.menu()
-
+        menu.mostrarMenu()
 
 def nivelAleatorio(numeroDeDimension):
     columnas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
