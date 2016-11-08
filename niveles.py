@@ -13,7 +13,6 @@ def cargarNivelesPredeterminados():
 def getNivelPredeterminado(numeroNivel):
     numeroNivelesValidos = (1, 2, 3, 4, 5)
     if numeroNivel in numeroNivelesValidos:
-        print(columnas[:5])
         return cargarNivelesPredeterminados()[numeroNivel - 1]
     else:
         print("Nivel no disponible...")
@@ -46,6 +45,5 @@ def getNivelAleatorio(numeroNivel,numeroDeDimension):
         print("")
         menu.mostrarMenu()
 
-nivelesPredeterminados = cargarNivelesPredeterminados()
 columnas = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
 filas = ("1", "2", "3", "4", "5")
