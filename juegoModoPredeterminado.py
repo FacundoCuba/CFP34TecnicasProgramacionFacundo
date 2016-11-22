@@ -3,13 +3,18 @@ import menu
 import usuario
 import switcher
 
+nivelActual = [niveles.columnas[:5]]
+for fila in niveles.getNivelPredeterminado(usuario.nivelActual):
+    nivelActual.append(fila)
+
 def predeterminado():
     turnosActuales = 15
-    while not nivelGanado(nivelActual) and turnosDisponibles(turnosActuales):
+    print("Turnos restantes: ", turnosActuales)
+    while not busquedaDeNivelGanador() and turnosDisponibles(turnosActuales):
         print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M): ")
         movimiento = input().upper()
         if movimiento[0] in niveles.columnas and movimiento[1] in niveles.filas:
-            switcher.buscaVecinos(movimiento)
+            nivelActual = switcher.swich(movimiento)
             turnosActuales -= 1
         elif movimiento == "R":
             predeterminado()
@@ -27,20 +32,16 @@ def predeterminado():
 def turnosDisponibles(turnosActuales):
     return turnosActuales > 0
 
-nivelActual = [niveles.columnas[:5]]
-for fila in niveles.getNivelPredeterminado(usuario.nivelActual):
-    nivelActual.append(fila)
-
-def nivelGanado(nivelActual):
+def nivelGanado():
     for fila in enumerate(nivelActual):
         print(str(fila))
-    busquedaDeNivelGanador(nivelActual)
 
-def busquedaDeNivelGanador(nivel):
-    nivel = nivel[1:]
-    for fila in nivel:
+def busquedaDeNivelGanador():
+    nivelActualTruncado = nivelActual[1:]
+    for fila in nivelActualTruncado:
         for caracter in fila:
             if caracter != ".":
+                nivelGanado()
                 return False
     return True
 

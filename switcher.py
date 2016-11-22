@@ -19,14 +19,12 @@ def buscaVecinos(movimientoRealizado):
         vecinos.append((tuplaDelMovimiento[0] + 1, tuplaDelMovimiento[1]))
     return vecinos
 
-#TODO mecanismo de swich para las luces
- '''''''''
 def swich(movimientoRealizado):
     nivelActual = juegoModoPredeterminado.nivelActual
     lucesACambiar = buscaVecinos(movimientoRealizado)
-    for tupla in lucesACambiar:
-        if nivelActual[tupla[0]][tupla[1]] == "0":
-            nivelActual[tupla[0]][tupla[1]].replace(".")
-        elif nivelActual[tupla[0]][tupla[1]] == ".":
-            nivelActual[tupla[0]][tupla[1]].replace("0")
-'''''''''''
+    for vecino in lucesACambiar:
+        if nivelActual[vecino[0]+1][vecino[1]] == "0":
+            nivelActual[vecino[0]+1][vecino[1]] = nivelActual[vecino[0]+1][vecino[1]].replace("0", ".")
+        elif nivelActual[vecino[0]+1][vecino[1]] == ".":
+            nivelActual[vecino[0]+1][vecino[1]] = nivelActual[vecino[0]+1][vecino[1]].replace(".", "0")
+    return nivelActual
