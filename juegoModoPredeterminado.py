@@ -33,8 +33,19 @@ def turnosDisponibles(turnosActuales):
     return turnosActuales > 0
 
 def nivelGanado():
-    for fila in enumerate(nivelActual):
-        print(str(fila))
+    letras = nivelActual[0]
+    panelDeJuego = nivelActual[1:]
+    filaDeLetras = "   "
+    for letra in letras:
+        filaDeLetras += " " + letra
+    print(filaDeLetras)
+    numeroDeFila = 1
+    for fila in panelDeJuego:
+        filaEntera = "%d |" % numeroDeFila
+        numeroDeFila += 1
+        for caracter in fila:
+            filaEntera += " " + caracter
+        print(filaEntera)
 
 def busquedaDeNivelGanador():
     nivelActualTruncado = nivelActual[1:]
