@@ -6,3 +6,7 @@ def puntajeUsuario():
 
 nivelActual = nivelUsuario()
 puntajeActual = puntajeUsuario()
+
+def pasarDeNivel(nivelActual):
+    nivelActual += 1
+    return nivelActual

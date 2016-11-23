@@ -20,11 +20,11 @@ def buscaVecinos(movimientoRealizado):
     return vecinos
 
 def swich(movimientoRealizado):
-    nivelActual = juegoModoPredeterminado.nivelActual
+    nivelEnJuego = juegoModoPredeterminado.tableroDelJugador
     lucesACambiar = buscaVecinos(movimientoRealizado)
     for vecino in lucesACambiar:
-        if nivelActual[vecino[0]+1][vecino[1]] == "0":
-            nivelActual[vecino[0]+1][vecino[1]] = nivelActual[vecino[0]+1][vecino[1]].replace("0", ".")
-        elif nivelActual[vecino[0]+1][vecino[1]] == ".":
-            nivelActual[vecino[0]+1][vecino[1]] = nivelActual[vecino[0]+1][vecino[1]].replace(".", "0")
-    return nivelActual
+        if nivelEnJuego[vecino[0]+1][vecino[1]] == "0":
+            nivelEnJuego[vecino[0]+1][vecino[1]] = nivelEnJuego[vecino[0]+1][vecino[1]].replace("0", ".")
+        elif nivelEnJuego[vecino[0]+1][vecino[1]] == ".":
+            nivelEnJuego[vecino[0]+1][vecino[1]] = nivelEnJuego[vecino[0]+1][vecino[1]].replace(".", "0")
+    return nivelEnJuego
