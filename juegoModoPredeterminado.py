@@ -5,8 +5,9 @@ import switcher
 
 def nivelEnJuego():
     nivel = [niveles.columnas[:5]]
-    for fila in niveles.getNivelPredeterminado(usuario.nivelActual):
-        nivel.append(fila)
+    if usuario.nivelActual <= 5:
+        for fila in niveles.getNivelPredeterminado(usuario.nivelActual):
+            nivel.append(fila)
     return nivel
 
 
@@ -14,12 +15,10 @@ tableroDelJugador = None
 
 def predeterminado():
     turnosActuales = 15
-    print("NIVEL: " + str(usuario.nivelActual))
-    print("Turnos restantes: ", turnosActuales)
-    print("")
     global tableroDelJugador
     tableroDelJugador = nivelEnJuego()
-    while not condicionNivelGanador() and turnosDisponibles(turnosActuales):
+    impresionInicial(turnosActuales)
+    while not condicionNivelGanador() and turnosDisponibles(turnosActuales) and usuario.nivelActual <= 5:
         print("")
         print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M): ")
         movimiento = input().upper()
@@ -50,17 +49,27 @@ def pasajeDeNivel():
     elif condicionNivelGanador() is True and usuario.nivelActual > 5:
         print("")
         print("Ud a completado el juego. Felicitaciones!!!")
+        print("")
         usuario.puntajeTotal()
         print("")
         menu.mostrarMenu()
     else:
         print("")
         print("Se le ha acabado los turnos. Intentelo de nuevo!")
+        print("")
         usuario.seguimientoDePuntaje(None, 0)
         usuario.puntajeDelNivel(usuario.nivelActual)
-        print("Ha ganado " + str(usuario.puntajeTotal()) + " en total!!!")
+        print("")
+        usuario.puntajeTotal()
         print("")
         menu.mostrarMenu()
+
+def impresionInicial(turnos):
+    if usuario.nivelActual < niveles.getNivelMax():
+        print("NIVEL: " + str(usuario.nivelActual))
+        print("Turnos restantes: ", turnos)
+        print("")
+
 
 def turnosDisponibles(turnosActuales):
     return turnosActuales > 0

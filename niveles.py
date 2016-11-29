@@ -10,14 +10,15 @@ def cargarNivelesPredeterminados():
     niveles.append([[".", ".", ".", "0", "0"],[".", ".", ".", "0", "0"],[".", ".", ".", ".", "."],["0", "0", ".", ".", "."],["0", "0", ".", ".", "."]])
     return niveles
 
+
+numeroNivelesValidos = (1, 2, 3, 4, 5)
+
+def getNivelMax():
+    return len(numeroNivelesValidos)
+
 def getNivelPredeterminado(numeroNivel):
-    numeroNivelesValidos = (1, 2, 3, 4, 5)
     if numeroNivel in numeroNivelesValidos:
         return cargarNivelesPredeterminados()[numeroNivel - 1]
-    else:
-        print("Nivel no disponible...")
-        print("")
-        menu.mostrarMenu()
 
 def nivelAleatorio(numeroDeDimension):
     nivel = []
