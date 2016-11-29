@@ -17,7 +17,7 @@ def puntajeDelNivel(nivel):
 
 def puntajeTotal():
     total = sum(puntajePorNivel.values())
-    return total
+    print("Ha ganado " + str(total) + " en total!!!")
 
 nivelActual = nivelUsuario()
 puntajePorNivel = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
