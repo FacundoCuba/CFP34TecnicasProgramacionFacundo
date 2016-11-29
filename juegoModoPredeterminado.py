@@ -14,6 +14,7 @@ tableroDelJugador = None
 
 def predeterminado():
     turnosActuales = 15
+    print("NIVEL: " + str(usuario.nivelActual))
     print("Turnos restantes: ", turnosActuales)
     global tableroDelJugador
     tableroDelJugador = nivelEnJuego()
@@ -24,6 +25,7 @@ def predeterminado():
             tableroDelJugador = switcher.swich(movimiento)
             turnosActuales -= 1
         elif movimiento == "R":
+            usuario.seguimientoDePuntaje(movimiento, turnosActuales)
             predeterminado()
         elif movimiento == "M":
             menu.mostrarMenu()
@@ -34,15 +36,21 @@ def predeterminado():
 
 def pasajeDeNivel():
     if condicionNivelGanador() is True and usuario.nivelActual <= 5:
-        usuario.nivelActual = usuario.pasarDeNivel(usuario.nivelActual)
+        usuario.seguimientoDePuntaje(None, 1)
         impresionDelNivelEnJuego()
+        usuario.puntajeDelNivel(usuario.nivelActual)
+        usuario.nivelActual = usuario.pasarDeNivel(usuario.nivelActual)
         predeterminado()
     elif condicionNivelGanador() is True and usuario.nivelActual > 5:
         print("Ud a completado el juego. Felicitaciones!!!")
+        print("Ha ganado " + str(usuario.puntajeTotal()) + " en total!!!")
         print("")
         menu.mostrarMenu()
     else:
         print("Se le ha acabado los turnos. Intentelo de nuevo!")
+        usuario.seguimientoDePuntaje(None, 0)
+        print("Ha ganado " + str(usuario.puntajeTotal()) + " en total!!!")
+        usuario.puntajeDelNivel(usuario.nivelActual)
         menu.mostrarMenu()
 
 def turnosDisponibles(turnosActuales):
