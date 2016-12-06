@@ -1,4 +1,4 @@
-def nivelUsuario():
+def nivelUsuarioInicial():
     return 1
 
 def seguimientoDePuntaje(opcion, cantidadDeTurnos):
@@ -23,7 +23,7 @@ def puntajeTotal():
     total = sum(puntajePorNivel.values())
     print("Ha ganado " + str(total) + " en total!!!")
 
-nivelActual = nivelUsuario()
+nivelActual = nivelUsuarioInicial()
 puntajePorNivel = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
 
 def pasarDeNivel(nivelActual):

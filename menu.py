@@ -1,4 +1,4 @@
-import juenoModoAleatorio
+import juegoModoAleatorio
 import juegoModoPredeterminado
 def mostrarMenu():
     print("¡Bienvenido al Juego \"Luces fuera\"!")
@@ -12,7 +12,7 @@ def mostrarMenu():
     if inputDelUser == "1":
         print("Ud ha elegido el Modo Aleatorio!")
         print("")
-        juenoModoAleatorio.aleatorio()
+        juegoModoAleatorio.eleccionDeLaDimension()
     elif inputDelUser == "2":
         print("Ud ha elegido el Modo Predeterminado!")
         print("")

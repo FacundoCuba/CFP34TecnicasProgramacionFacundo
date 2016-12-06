@@ -39,7 +39,6 @@ def cargarNivelesAleatorios(numeroDeDimension):
 def getNivelAleatorio(numeroNivel,numeroDeDimension):
     numeroNivelesValidos = (1, 2, 3, 4, 5)
     if numeroNivel in numeroNivelesValidos:
-        print(columnas[:(numeroDeDimension)])
         return cargarNivelesAleatorios(numeroDeDimension)[numeroNivel - 1]
     else:
         print("Nivel no disponible...")
@@ -47,4 +46,4 @@ def getNivelAleatorio(numeroNivel,numeroDeDimension):
         menu.mostrarMenu()
 
 columnas = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
-filas = ("1", "2", "3", "4", "5")
+filas = ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")

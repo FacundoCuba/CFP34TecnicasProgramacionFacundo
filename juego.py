@@ -2,7 +2,7 @@ import usuario
 import menu
 
 def cargarConfiguracionesIniciales():
-    usuario.nivelUsuario()
+    usuario.nivelUsuarioInicial()
 
 def iniciarJuego():
     menu.mostrarMenu()

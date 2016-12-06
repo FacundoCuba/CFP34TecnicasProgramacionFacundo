@@ -20,7 +20,7 @@ def predeterminado():
     impresionInicial(turnosActuales)
     while not condicionNivelGanador() and turnosDisponibles(turnosActuales) and usuario.nivelActual <= 5:
         print("")
-        print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M): ")
+        print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M):")
         movimiento = input().upper()
         if movimiento[0] in niveles.columnas and movimiento[1] in niveles.filas:
             tableroDelJugador = switcher.swich(movimiento)
@@ -69,7 +69,6 @@ def impresionInicial(turnos):
         print("NIVEL: " + str(usuario.nivelActual))
         print("Turnos restantes: ", turnos)
         print("")
-
 
 def turnosDisponibles(turnosActuales):
     return turnosActuales > 0
