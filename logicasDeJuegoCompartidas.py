@@ -1,6 +1,7 @@
+import menu
 import usuario
 import niveles
-import menu
+import switcher
 
 def impresionDelTablero(tablero):
     letras = tablero[0]
@@ -59,3 +60,26 @@ def pasajeDeNivel(nivelGanado, impresion, tipoDeJuego):
         usuario.puntajeTotal()
         print("")
         menu.mostrarMenu()
+
+def turnosDisponibles(turnosActuales):
+    return turnosActuales > 0
+
+def logicaDeMovimiento(condicionNivelGanador, turnos, tablero, tipoDeJuego):
+    impresionInicial(turnos)
+    while not condicionNivelGanador() and turnosDisponibles(turnos) and usuario.nivelActual <= 5:
+        print("")
+        print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M):")
+        movimiento = input().upper()
+        if movimiento[0] in niveles.columnas and movimiento[1] in niveles.filas:
+            tablero = switcher.swich(movimiento)
+            turnos -= 1
+        elif movimiento == "R":
+            usuario.seguimientoDePuntaje(movimiento, turnos)
+            tipoDeJuego()
+        elif movimiento == "M":
+            menu.mostrarMenu()
+        else:
+            print("Ingrese un movimiento valido!")
+    print("")
+    print("NIVEL: " + str(usuario.nivelActual))
+    print("Turnos restantes: ", turnos)
