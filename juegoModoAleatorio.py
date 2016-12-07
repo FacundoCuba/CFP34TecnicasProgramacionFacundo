@@ -3,6 +3,7 @@ import niveles
 import usuario
 import switcher
 import juegoModoPredeterminado
+import logicasDeJuegoCompartidas
 
 tableroDelJugador = None
 dimensionEscogida = None
@@ -12,7 +13,7 @@ def aleatorio():
     turnosActuales = dimensionEscogida * 3
     global tableroDelJugador
     tableroDelJugador = nivelEnJuegoAleatorio()
-    juegoModoPredeterminado.impresionInicial(turnosActuales)
+    logicasDeJuegoCompartidas.impresionInicial(turnosActuales)
     while not condicionNivelGanadorAleatorio() and juegoModoPredeterminado.turnosDisponibles(turnosActuales) and usuario.nivelActual <= 5:
         print("")
         # TODO modificar la impresion de la maximo movimiento posible
@@ -31,34 +32,7 @@ def aleatorio():
         print("")
         print("NIVEL: " + str(usuario.nivelActual))
         print("Turnos restantes: ", turnosActuales)
-    pasajeDeNivelAleatorio()
-
-def pasajeDeNivelAleatorio():
-    if condicionNivelGanadorAleatorio() is True and usuario.nivelActual <= 5:
-        usuario.seguimientoDePuntaje(None, 1)
-        impresionDelNivelEnJuegoAleatorio()
-        print("")
-        usuario.puntajeDelNivel(usuario.nivelActual)
-        usuario.nivelActual = usuario.pasarDeNivel(usuario.nivelActual)
-        print("")
-        aleatorio()
-    elif condicionNivelGanadorAleatorio() is True and usuario.nivelActual > 5:
-        print("")
-        print("Ud a completado el juego. Felicitaciones!!!")
-        print("")
-        usuario.puntajeTotal()
-        print("")
-        menu.mostrarMenu()
-    else:
-        print("")
-        print("Se le ha acabado los turnos. Intentelo de nuevo!")
-        print("")
-        usuario.seguimientoDePuntaje(None, 0)
-        usuario.puntajeDelNivel(usuario.nivelActual)
-        print("")
-        usuario.puntajeTotal()
-        print("")
-        menu.mostrarMenu()
+    logicasDeJuegoCompartidas.pasajeDeNivel(condicionNivelGanadorAleatorio, impresionDelNivelEnJuegoAleatorio, aleatorio)
 
 def eleccionDeLaDimension():
     print("Ingrese la dimension del tablero que desee (de 5 a 10):")
@@ -82,26 +56,8 @@ def nivelEnJuegoAleatorio():
 
 def condicionNivelGanadorAleatorio():
     global tableroDelJugador
-    nivelActualTruncado = tableroDelJugador[1:]
-    for fila in nivelActualTruncado:
-        for caracter in fila:
-            if caracter != ".":
-                impresionDelNivelEnJuegoAleatorio()
-                return False
-    return True
+    return logicasDeJuegoCompartidas.condicionNivelGanado(tableroDelJugador, impresionDelNivelEnJuegoAleatorio())
 
 def impresionDelNivelEnJuegoAleatorio():
     global tableroDelJugador
-    letras = tableroDelJugador[0]
-    panelDeJuego = tableroDelJugador[1:]
-    filaDeLetras = "   "
-    for letra in letras:
-        filaDeLetras += " " + letra
-    print(filaDeLetras)
-    numeroDeFila = 1
-    for fila in panelDeJuego:
-        filaEntera = "%d |" % numeroDeFila
-        numeroDeFila += 1
-        for caracter in fila:
-            filaEntera += " " + caracter
-        print(filaEntera)
+    return logicasDeJuegoCompartidas.impresionDelTablero(tableroDelJugador)
