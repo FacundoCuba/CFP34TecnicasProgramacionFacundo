@@ -1,6 +1,10 @@
 import random
 import menu
 
+columnas = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
+filas = ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+numeroNivelesValidos = (1, 2, 3, 4, 5)
+
 def cargarNivelesPredeterminados():
     niveles = []
     niveles.append([["0", "0", ".", "0", "0"],["0", ".", "0", ".", "0"],[".", "0", "0", "0", "."],["0", ".", "0", ".", "0"],["0", "0", ".", "0", "0"]])
@@ -9,9 +13,6 @@ def cargarNivelesPredeterminados():
     niveles.append([["0", "0", ".", "0", "0"],[".", ".", ".", ".", "."],["0", "0", ".", "0", "0"],[".", ".", ".", ".", "0"],["0", "0", ".", ".", "."]])
     niveles.append([[".", ".", ".", "0", "0"],[".", ".", ".", "0", "0"],[".", ".", ".", ".", "."],["0", "0", ".", ".", "."],["0", "0", ".", ".", "."]])
     return niveles
-
-
-numeroNivelesValidos = (1, 2, 3, 4, 5)
 
 def getNivelMax():
     return len(numeroNivelesValidos)
@@ -44,6 +45,3 @@ def getNivelAleatorio(numeroNivel,numeroDeDimension):
         print("Nivel no disponible...")
         print("")
         menu.mostrarMenu()
-
-columnas = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
-filas = ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")

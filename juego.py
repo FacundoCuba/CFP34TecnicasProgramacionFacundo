@@ -6,5 +6,3 @@ def cargarConfiguracionesIniciales():
 
 def iniciarJuego():
     menu.mostrarMenu()
-
-#Funciones primitivas son las que manipulan los datos....

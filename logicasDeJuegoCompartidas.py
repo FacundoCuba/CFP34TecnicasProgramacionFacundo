@@ -80,6 +80,6 @@ def logicaDeMovimiento(condicionNivelGanador, turnos, tablero, tipoDeJuego):
             menu.mostrarMenu()
         else:
             print("Ingrese un movimiento valido!")
-    print("")
-    print("NIVEL: " + str(usuario.nivelActual))
-    print("Turnos restantes: ", turnos)
+        print("")
+        print("NIVEL: " + str(usuario.nivelActual))
+        print("Turnos restantes: ", turnos)
