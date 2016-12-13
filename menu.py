@@ -11,11 +11,9 @@ def mostrarMenu():
     print("")
     if inputDelUser == "1":
         print("Ud ha elegido el Modo Aleatorio!")
-        print("")
         juegoModoAleatorio.eleccionDeLaDimension()
     elif inputDelUser == "2":
         print("Ud ha elegido el Modo Predeterminado!")
-        print("")
         juegoModoPredeterminado.predeterminado()
     elif inputDelUser == "3":
         print("Saliendo...")

@@ -18,32 +18,32 @@ def impresionDelTablero(tablero):
             filaEntera += " " + caracter
         print(filaEntera)
 
-def condicionNivelGanado(tablero, impresion):
+def condicionNivelGanado(tablero, impresion, turnos):
     nivelActualTruncado = tablero[1:]
     for fila in nivelActualTruncado:
         for caracter in fila:
             if caracter != ".":
-                impresion
+                impresion(turnos)
                 return False
     return True
 
-def impresionInicial(turnos):
-    if usuario.nivelActual < niveles.getNivelMax():
+def impresionNivelYTurnosRestantes(turnos):
+    if usuario.nivelActual <= niveles.getNivelMax():
+        print("")
         print("NIVEL: " + str(usuario.nivelActual))
         print("Turnos restantes: ", turnos)
         print("")
 
-def pasajeDeNivel(nivelGanado, impresion, tipoDeJuego):
-    nivelYaGanado = nivelGanado()
-    if nivelYaGanado and usuario.nivelActual <= 5:
+def pasajeDeNivel(nivelGanado, impresion, tipoDeJuego, turnos):
+    nivelYaGanado = nivelGanado(turnos)
+    if nivelYaGanado and usuario.nivelActual <= 5 and turnos > 0:
         usuario.seguimientoDePuntaje(None, 1)
-        impresion()
         print("")
         usuario.puntajeDelNivel(usuario.nivelActual)
         usuario.nivelActual = usuario.pasarDeNivel(usuario.nivelActual)
         print("")
         tipoDeJuego()
-    elif nivelYaGanado and usuario.nivelActual > 5:
+    elif nivelYaGanado and usuario.nivelActual > 5 and turnos > 0:
         print("")
         print("Ud a completado el juego. Felicitaciones!!!")
         print("")
@@ -65,8 +65,7 @@ def turnosDisponibles(turnosActuales):
     return turnosActuales > 0
 
 def logicaDeMovimiento(condicionNivelGanador, turnos, tablero, tipoDeJuego):
-    impresionInicial(turnos)
-    while not condicionNivelGanador() and turnosDisponibles(turnos) and usuario.nivelActual <= 5:
+    while not condicionNivelGanador(turnos) and turnosDisponibles(turnos) and usuario.nivelActual <= 5:
         print("")
         print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M):")
         movimiento = input().upper()
@@ -80,6 +79,3 @@ def logicaDeMovimiento(condicionNivelGanador, turnos, tablero, tipoDeJuego):
             menu.mostrarMenu()
         else:
             print("Ingrese un movimiento valido!")
-        print("")
-        print("NIVEL: " + str(usuario.nivelActual))
-        print("Turnos restantes: ", turnos)

@@ -5,11 +5,11 @@ import logicasDeJuegoCompartidas
 tableroDelJugador = None
 
 def predeterminado():
-    turnosActuales = 15
     global tableroDelJugador
     tableroDelJugador = nivelEnJuego()
+    turnosActuales = 15
     logicasDeJuegoCompartidas.logicaDeMovimiento(condicionNivelGanador, turnosActuales, tableroDelJugador, predeterminado)
-    logicasDeJuegoCompartidas.pasajeDeNivel(condicionNivelGanador, impresionDelNivelEnJuego, predeterminado)
+    logicasDeJuegoCompartidas.pasajeDeNivel(condicionNivelGanador, impresionDelNivelEnJuego, predeterminado, turnosActuales)
 
 def nivelEnJuego():
     nivel = [niveles.columnas[:5]]
@@ -18,10 +18,11 @@ def nivelEnJuego():
             nivel.append(fila)
     return nivel
 
-def condicionNivelGanador():
+def condicionNivelGanador(turnos):
     global tableroDelJugador
-    return logicasDeJuegoCompartidas.condicionNivelGanado(tableroDelJugador, impresionDelNivelEnJuego())
+    return logicasDeJuegoCompartidas.condicionNivelGanado(tableroDelJugador, impresionDelNivelEnJuego, turnos)
 
-def impresionDelNivelEnJuego():
+def impresionDelNivelEnJuego(turnos):
     global tableroDelJugador
+    logicasDeJuegoCompartidas.impresionNivelYTurnosRestantes(turnos)
     return logicasDeJuegoCompartidas.impresionDelTablero(tableroDelJugador)

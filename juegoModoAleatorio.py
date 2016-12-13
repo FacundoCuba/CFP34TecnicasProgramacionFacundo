@@ -11,7 +11,7 @@ def aleatorio():
     global tableroDelJugador
     tableroDelJugador = nivelEnJuegoAleatorio()
     logicasDeJuegoCompartidas.logicaDeMovimiento(condicionNivelGanadorAleatorio, turnosActuales, tableroDelJugador, aleatorio)
-    logicasDeJuegoCompartidas.pasajeDeNivel(condicionNivelGanadorAleatorio, impresionDelNivelEnJuegoAleatorio, aleatorio)
+    logicasDeJuegoCompartidas.pasajeDeNivel(condicionNivelGanadorAleatorio, impresionDelNivelEnJuegoAleatorio, aleatorio, turnosActuales)
 
 def eleccionDeLaDimension():
     print("Ingrese la dimension del tablero que desee (de 5 a 10):")
@@ -33,10 +33,11 @@ def nivelEnJuegoAleatorio():
             nivel.append(fila)
     return nivel
 
-def condicionNivelGanadorAleatorio():
+def condicionNivelGanadorAleatorio(turnos):
     global tableroDelJugador
-    return logicasDeJuegoCompartidas.condicionNivelGanado(tableroDelJugador, impresionDelNivelEnJuegoAleatorio())
+    return logicasDeJuegoCompartidas.condicionNivelGanado(tableroDelJugador, impresionDelNivelEnJuegoAleatorio, turnos)
 
-def impresionDelNivelEnJuegoAleatorio():
+def impresionDelNivelEnJuegoAleatorio(turnos):
     global tableroDelJugador
+    logicasDeJuegoCompartidas.impresionNivelYTurnosRestantes(turnos)
     return logicasDeJuegoCompartidas.impresionDelTablero(tableroDelJugador)
