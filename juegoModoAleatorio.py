@@ -39,5 +39,6 @@ def condicionNivelGanadorAleatorio(turnos):
 
 def impresionDelNivelEnJuegoAleatorio(turnos):
     global tableroDelJugador
-    logicasDeJuegoCompartidas.impresionNivelYTurnosRestantes(turnos)
-    return logicasDeJuegoCompartidas.impresionDelTablero(tableroDelJugador)
+    if turnos > 0:
+        logicasDeJuegoCompartidas.impresionNivelYTurnosRestantes(turnos)
+        return logicasDeJuegoCompartidas.impresionDelTablero(tableroDelJugador)

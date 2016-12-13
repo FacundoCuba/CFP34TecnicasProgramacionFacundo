@@ -22,9 +22,9 @@ def puntajeTotal():
     print("PUNTAJES:")
     for valores in puntajePorNivel:
         print("Nivel " + str(valores) + ": " + str(puntajePorNivel[valores]) + " puntos.")
-    print("")
     total = sum(puntajePorNivel.values())
     print("Ha ganado " + str(total) + " en total!!!")
+    print("")
 
 def pasarDeNivel(nivelActual):
     nivelActual += 1

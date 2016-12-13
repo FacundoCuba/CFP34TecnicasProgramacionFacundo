@@ -36,7 +36,7 @@ def impresionNivelYTurnosRestantes(turnos):
 
 def pasajeDeNivel(nivelGanado, impresion, tipoDeJuego, turnos):
     nivelYaGanado = nivelGanado(turnos)
-    if nivelYaGanado and usuario.nivelActual <= 5 and turnos > 0:
+    if nivelYaGanado and usuario.nivelActual <= 5:
         usuario.seguimientoDePuntaje(None, 1)
         print("")
         usuario.puntajeDelNivel(usuario.nivelActual)
@@ -68,8 +68,11 @@ def logicaDeMovimiento(condicionNivelGanador, turnos, tablero, tipoDeJuego):
     while not condicionNivelGanador(turnos) and turnosDisponibles(turnos) and usuario.nivelActual <= 5:
         print("")
         print("Ingrese su movimiento (de A1 a E5), Reinicie el nivel (R) o Regrese al menu principal (M):")
+        movimiento = ""
         movimiento = input().upper()
-        if movimiento[0] in niveles.columnas and movimiento[1] in niveles.filas:
+        if movimiento == "":
+            print("Ingrese un movimiento valido!")
+        elif movimiento[0] in niveles.columnas and movimiento[1] in niveles.filas:
             tablero = switcher.swich(movimiento)
             turnos -= 1
         elif movimiento == "R":

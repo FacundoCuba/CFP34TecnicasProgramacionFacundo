@@ -24,5 +24,6 @@ def condicionNivelGanador(turnos):
 
 def impresionDelNivelEnJuego(turnos):
     global tableroDelJugador
-    logicasDeJuegoCompartidas.impresionNivelYTurnosRestantes(turnos)
-    return logicasDeJuegoCompartidas.impresionDelTablero(tableroDelJugador)
+    if turnos > 0:
+        logicasDeJuegoCompartidas.impresionNivelYTurnosRestantes(turnos)
+        return logicasDeJuegoCompartidas.impresionDelTablero(tableroDelJugador)
